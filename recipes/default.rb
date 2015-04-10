@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+include_recipe 'cron'
+
+package 'ntpdate'
+
 file "#{node['ntpdate']['cron_dir']}/ntpdate" do
     content "ntpdate -s #{node['ntpdate']['time_servers']}"
     owner   'root'
